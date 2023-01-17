@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 import { supabase } from "../libs/supabaseClient";
@@ -16,14 +16,14 @@ const Layout = () => {
       setSession(session);
     });
   }, []);
+
   return (
-    <>
-      <div>
-        <Header />
-      </div>
+    <SessionContext.Provider value={session}>
+      <Header />
       <Outlet />
-    </>
+    </SessionContext.Provider>
   );
 };
 
+export const SessionContext = createContext<Session | null>(null);
 export default Layout;
