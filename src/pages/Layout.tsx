@@ -1,7 +1,7 @@
 import { useEffect, useState, createContext } from "react";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
-import { supabase } from "../libs/supabaseClient";
+import { supabase } from "../lib/supabaseClient";
 import { Session } from "@supabase/supabase-js";
 
 const Layout = () => {
