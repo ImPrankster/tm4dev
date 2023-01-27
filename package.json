@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "update-types": "supabase gen types typescript --project-id 'jpghlodddllqnpfqjkvo' > ./src/libs/types/supabase.ts"
+    "update-types": "supabase gen types typescript --project-id 'jpghlodddllqnpfqjkvo' > ./src/lib/types/supabase.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.4.0",
@@ -15,7 +15,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
-    "react-spinners": "^0.13.7"
+    "react-spinners": "^0.13.7",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

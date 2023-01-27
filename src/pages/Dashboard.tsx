@@ -7,7 +7,6 @@ import LoadingScreen from "../components/LoadingScreen";
 
 const Dashboard = () => {
   const [userTasks, setUserTasks] = useState<userTasksType | null>(null);
-  const [loading, isLoading] = useState(false);
   const [taskFetchError, setTaskFetchError] = useState(null);
 
   useEffect(() => {
@@ -25,13 +24,7 @@ const Dashboard = () => {
   return (
     <>
       <div className="h-16" />
-      <div>
-        {userTasks == null ? (
-          <LoadingScreen />
-        ) : (
-          <TaskListView tasks={userTasks} />
-        )}
-      </div>
+      <TaskListView tasks={userTasks} />
     </>
   );
 };

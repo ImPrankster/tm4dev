@@ -1,8 +1,8 @@
 import { supabase } from "../lib/supabaseClient";
 import { FormEvent, useState, useContext } from "react";
 import { AuthError } from "@supabase/supabase-js";
-import BarLoader from "react-spinners/BarLoader";
 import { SessionContext } from "./Layout";
+import CenteredLoadingBar from "../components/CenteredLoadingBar";
 
 import { MdMarkEmailRead, MdError } from "react-icons/md";
 
@@ -53,7 +53,7 @@ const Account = () => {
         <div className="card bg-base-100 shadow-2xl">
           <div className="card-body items-center">
             {isLoading ? (
-              <BarLoader loading={true} color="#570DF8" />
+              <CenteredLoadingBar />
             ) : (
               <>
                 <h1 className="text-5xl font-bold">Hello there</h1>
