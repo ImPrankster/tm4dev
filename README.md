@@ -1,2 +1,3 @@
 # tm4dev
-Task Manager for Devs
+
+This is the task manager for devs.
