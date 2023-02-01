@@ -16,7 +16,7 @@ const NewTaskScreen = () => {
                 placeholder="Name"
                 className="input-bordered input w-full"
               />
-              <label className="label">
+              <label className="label ">
                 <span className="label-text">Description</span>
               </label>
               <input
