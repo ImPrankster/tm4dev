@@ -1,22 +1,18 @@
 import { userTasksType } from "../../lib/getUserTasks";
 import CenteredLoadingBar from "../CenteredLoadingBar";
-import { z } from "zod";
 import { MdError } from "react-icons/md";
+import {
+  TaskDescriptionSchema,
+  TaskDescription,
+} from "../../lib/schemas/zodSchemas";
 
 type TaskListViewProp = {
   tasks: userTasksType | null;
 };
 
-const TaskDescriptionSchema = z.object({
-  tags: z.string().array(),
-  description: z.string(),
-});
-
-type TaskDescription = z.infer<typeof TaskDescriptionSchema>;
-
 const TaskListView = ({ tasks }: TaskListViewProp) => {
   return (
-    <div className="card m-4 max-w-full bg-base-100 shadow-2xl md:max-w-md">
+    <div className="card m-4 max-w-full bg-base-100 shadow-lg md:max-w-md">
       <div className="card-compact card-body">
         {!tasks ? (
           <CenteredLoadingBar />
@@ -35,16 +31,26 @@ const TaskListView = ({ tasks }: TaskListViewProp) => {
                   >
                     <div className="collapse-title flex flex-row items-center text-xl font-medium">
                       <p className="text-primary-content">{element.name}</p>
-                      {taskDescription.tags.map((element, i) => {
-                        return (
-                          <div className="badge-secondary badge ml-1" key={i}>
-                            {element}
-                          </div>
-                        );
-                      })}
+                      {!taskDescription.tags ? (
+                        <></>
+                      ) : (
+                        taskDescription.tags.map((element, i) => {
+                          return (
+                            <div className="badge-secondary badge ml-1" key={i}>
+                              {element}
+                            </div>
+                          );
+                        })
+                      )}
                     </div>
                     <div className="collapse-content">
-                      <p>Placeholder</p>
+                      {!taskDescription.description ? (
+                        <></>
+                      ) : (
+                        <p className="text-primary-content">
+                          {taskDescription.description}
+                        </p>
+                      )}
                     </div>
                   </div>
                 );
