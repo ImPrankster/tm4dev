@@ -9,7 +9,7 @@ const Header = () => {
       <Link to="/" className="btn-ghost btn">
         Dashboard
       </Link>
-      <Link to="/account" className="btn-ghost btn">
+      <Link to="/account" className="btn-ghost btn ">
         Account
       </Link>
     </div>

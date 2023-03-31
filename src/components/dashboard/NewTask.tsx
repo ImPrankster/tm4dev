@@ -1,9 +1,12 @@
-import { MdCheck } from "react-icons/md";
+import { MdCheck, MdAdd } from "react-icons/md";
 
-const NewTaskScreen = () => {
+const NewTask = () => {
   return (
-    <div className="fixed top-0 left-0 z-20 flex h-screen w-screen flex-col items-center justify-center bg-base-100 bg-opacity-60 p-4 backdrop-blur-sm transition-all ease-in-out">
-      <div className="card-compact card w-full bg-base-100 p-4 shadow-xl md:max-w-md">
+    <div className="dropdown-top dropdown-end dropdown fixed bottom-4 right-4">
+      <label tabIndex={0} className="btn-circle btn">
+        <MdAdd size={10} />
+      </label>
+      <div className="card-compact card dropdown-content m-4 w-96 bg-base-100 p-4 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Set New Task</h2>
           <div className="card-actions">
@@ -43,4 +46,4 @@ const NewTaskScreen = () => {
   );
 };
 
-export default NewTaskScreen;
+export default NewTask;

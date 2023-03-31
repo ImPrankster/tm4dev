@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import getUserTasks from "../lib/getUserTasks";
 import { userTasksType } from "../lib/getUserTasks";
 import TaskListView from "../components/dashboard/TaskListView";
-import NewTaskButton from "../components/dashboard/NewTaskButton";
-import NewTaskScreen from "../components/dashboard/NewTaskScreen";
+import NewTask from "../components/dashboard/NewTask";
 
 const Dashboard = () => {
   const [userTasks, setUserTasks] = useState<userTasksType | null>(null);
-  const [isSettingTask, setIsSettingTask] = useState(false);
 
   useEffect(() => {
     let data: userTasksType;
@@ -24,13 +22,7 @@ const Dashboard = () => {
   return (
     <>
       <div className="h-16" />
-      <NewTaskButton
-        exec={() => {
-          setIsSettingTask(!isSettingTask);
-        }}
-      />
-      {!isSettingTask ? <></> : <NewTaskScreen />}
-
+      <NewTask />
       <TaskListView tasks={userTasks} />
     </>
   );
